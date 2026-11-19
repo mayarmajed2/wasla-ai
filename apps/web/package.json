@@ -1,8 +1,8 @@
 {
-  "name": "@agent-company/web",
+  "name": "@wasla-ai/web",
   "version": "1.0.0",
   "private": true,
-  "description": "Next.js 15 RTL Arabic/English Restaurant Dashboard, Live Cashier KDS & Super Admin Control Panel",
+  "description": "Wasla AI Next.js 15 RTL Arabic/English Portal (Business Dashboard, Live Orders/Bookings Board, Inbox & Super Admin)",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@agent-company/shared-types": "*",
+    "@wasla-ai/shared-types": "*",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

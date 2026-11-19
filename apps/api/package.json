@@ -1,7 +1,7 @@
 {
-  "name": "@agent-company/api",
+  "name": "@wasla-ai/api",
   "version": "1.0.0",
-  "description": "Event-Driven Modular Monolith Backend (Webhooks, AI FSM Orchestrator, Deterministic Order Engine, Multi-Channel Dispatcher)",
+  "description": "Wasla AI Backend - Multi-Industry Conversational Commerce, Ordering, Booking & Lead Automation Engine",
   "scripts": {
     "dev": "tsx watch src/main.ts",
     "build": "tsc",
@@ -9,7 +9,7 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@agent-company/shared-types": "*",
+    "@wasla-ai/shared-types": "*",
     "bullmq": "^5.15.0",
     "ioredis": "^5.4.1",
     "pg": "^8.13.0",

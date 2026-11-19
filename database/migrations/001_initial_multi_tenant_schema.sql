@@ -6,11 +6,14 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pg_trgm";
 
--- 1. TENANTS
+-- 1. TENANTS (Multi-Industry Businesses on Wasla AI)
 CREATE TABLE tenants (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(150) NOT NULL,
     slug VARCHAR(100) NOT NULL UNIQUE,
+    industry_vertical VARCHAR(40) NOT NULL DEFAULT 'RESTAURANT_CAFE' CHECK (
+        industry_vertical IN ('RESTAURANT_CAFE', 'ECOMMERCE_RETAIL', 'CLINIC_BOOKING', 'LEAD_GEN_SERVICES')
+    ),
     status VARCHAR(30) NOT NULL DEFAULT 'ACTIVE' CHECK (status IN ('TRIAL', 'ACTIVE', 'PAST_DUE', 'SUSPENDED', 'CANCELLED')),
     default_currency CHAR(3) NOT NULL DEFAULT 'EGP',
     timezone VARCHAR(64) NOT NULL DEFAULT 'Africa/Cairo',
@@ -18,7 +21,7 @@ CREATE TABLE tenants (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
-CREATE INDEX idx_tenants_status ON tenants(status);
+CREATE INDEX idx_tenants_status ON tenants(status, industry_vertical);
 
 -- 2. RESTAURANTS (Branches)
 CREATE TABLE restaurants (
